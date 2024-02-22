@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 /**
  * @author egepancaroglu
@@ -8,6 +8,8 @@ import entity.BaseBuild;
 import entity.House;
 import entity.SummerCottage;
 import entity.Villa;
+import service.BuildManager;
+import service.BuildService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +18,9 @@ import java.util.stream.Collectors;
 /**
  * @author egepancaroglu
  */
-public class BuildServiceImpl implements BuildService{
+public class BuildServiceImpl implements BuildService {
 
-    private BuildManager buildManager;
+    private final BuildManager buildManager;
 
     public BuildServiceImpl(BuildManager buildManager) {
         this.buildManager = buildManager;
@@ -70,17 +72,17 @@ public class BuildServiceImpl implements BuildService{
 
     @Override
     public List<BaseBuild> FilterByNumberOfRoomAndHall(int numberOfRoom, int numberOfHall) {
-        List<BaseBuild> sonucListesi = new ArrayList<>();
-        sonucListesi.addAll(buildManager.getHouseList().stream()
+        List<BaseBuild> filteredList = new ArrayList<>();
+        filteredList.addAll(buildManager.getHouseList().stream()
                 .filter(ev -> ev.getNumberOfRooms() == numberOfRoom && ev.getNumberOfHalls() == numberOfHall)
                 .collect(Collectors.toList()));
-        sonucListesi.addAll(buildManager.getVillaList().stream()
+        filteredList.addAll(buildManager.getVillaList().stream()
                 .filter(villa -> villa.getNumberOfRooms() == numberOfRoom && villa.getNumberOfHalls() == numberOfHall)
                 .collect(Collectors.toList()));
-        sonucListesi.addAll(buildManager.getSummerCottageList().stream()
-                .filter(yazlik -> yazlik.getNumberOfRooms() == numberOfRoom && yazlik.getNumberOfHalls() == numberOfHall)
+        filteredList.addAll(buildManager.getSummerCottageList().stream()
+                .filter(summerCottage -> summerCottage.getNumberOfRooms() == numberOfRoom && summerCottage.getNumberOfHalls() == numberOfHall)
                 .collect(Collectors.toList()));
-        return sonucListesi;
+        return filteredList;
     }
 }
 

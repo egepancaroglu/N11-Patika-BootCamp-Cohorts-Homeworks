@@ -3,7 +3,7 @@ import entity.SummerCottage;
 import entity.Villa;
 import service.BuildManager;
 import service.BuildService;
-import service.BuildServiceImpl;
+import service.impl.BuildServiceImpl;
 
 /**
  * @author egepancaroglu
@@ -42,8 +42,7 @@ public class Main {
         System.out.printf("Average Area of Summer Cottages: %,.2f\u33A1%n", buildService.averageAreaOfAllSummerCottages());
         System.out.printf("Average Area of Builds: %,.2f\u33A1%n", buildService.averageAreaOfAllBuilds());
 
-        System.out.println("\nFilter by Room Count = 3 and Hall Count = 2\n" + buildService.FilterByNumberOfRoomAndHall(3,2));
-
+        System.out.println("\nFilter by Room Count = 3 and Hall Count = 2\n" + buildService.FilterByNumberOfRoomAndHall(3, 2));
 
 
     }
