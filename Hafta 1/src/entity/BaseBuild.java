@@ -60,6 +60,6 @@ public abstract class BaseBuild {
                 "{Price = " + df.format(propertyPrice) + "\u20BA" +
                 ", totalArea = " + totalLivingArea + "\u33A1" +
                 ", Room Count = " + numberOfRooms +
-                ", Hall Count = " + numberOfHalls + "}";
+                ", Hall Count = " + numberOfHalls + "}\n";
     }
 }
